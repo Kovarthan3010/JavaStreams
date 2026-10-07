@@ -1,0 +1,30 @@
+import java.util.List;
+
+public class Stream {
+    Repository repository = new Repository();
+    List<Employee> employees = repository.employees();
+
+    public void execute() {
+
+        //print even employee id's
+       /* employees.stream()
+                .map(Employee::getEmpId)
+                .filter(empId -> empId %2 == 0)
+                .forEach(System.out :: println); */
+
+
+       //conver string to lowercase
+       /*employees.stream()
+               .map(emp -> emp.getName())
+               .map(String :: toLowerCase)
+               .forEach(System.out :: println);*/
+
+        //find max value
+        double max = employees.stream()
+                .map(Employee::getSalary)
+                .max((a,b)->a.compareTo(b))
+                .get();
+        System.out.println(max);
+
+    }
+}
