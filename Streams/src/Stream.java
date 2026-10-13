@@ -40,5 +40,24 @@ public class Stream {
                 .filter(name -> name.startsWith("A"))
                 .count();
         System.out.println("Count : "+count);
+
+        //sort list of strings
+        employees.stream()
+                .map(employee -> employee.getName())
+                .sorted()
+                .forEach(System.out::println);
+
+        //sort list of strings in descending
+        employees.stream()
+                .map(Employee :: getSalary)
+                .sorted((a,b)->b.compareTo(a))
+                .forEach(s->System.out.println(s));
+
+        //sort list of strings in descending
+        //*****For all string and numbers also use compareTo
+        employees.stream()
+                .map(employee -> employee.getName())
+                .sorted((a,b) -> b.compareTo(a))
+                .forEach(System.out::println);
     }
 }
